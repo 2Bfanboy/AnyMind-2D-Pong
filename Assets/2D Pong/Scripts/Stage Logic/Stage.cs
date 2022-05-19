@@ -26,7 +26,7 @@ namespace AnyMind.Pong2D
         {
             if (CurrentStage != null)
             {
-                SetStageData(CurrentStage);
+                LoadStageFromData(CurrentStage);
             }
             else
             {
