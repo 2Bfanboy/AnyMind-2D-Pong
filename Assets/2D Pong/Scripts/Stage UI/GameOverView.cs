@@ -26,9 +26,11 @@ namespace AnyMind.Pong2D
         private void OnDestroy()
         {
             model.OnLifePointsChanged -= LifePointsChangedHandler;
+            model.OnStageSuccessfullyCleared -= AllBricksRemovedHandler;
         }
         #endregion
 
+        #region Event Handlers
         // This listens for lifePoints == 0 event trigger
         private void LifePointsChangedHandler(int amount)
         {
@@ -54,7 +56,7 @@ namespace AnyMind.Pong2D
         {
             stageClearedPanel.SetActive(true);
         }
-        
+        #endregion
         
         
         #region Button calls
