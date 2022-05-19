@@ -13,9 +13,7 @@ namespace AnyMind.Pong2D
         private void OnTriggerEnter2D(Collider2D collider)
         {
             stageReference.ReceiveDamage();
-            var ball = collider.GetComponent<Ball>();
-            // Just temporary for testing
-            ball.Spawn();
+            stageReference.RequestBallSpawn();
         }
     }
 }

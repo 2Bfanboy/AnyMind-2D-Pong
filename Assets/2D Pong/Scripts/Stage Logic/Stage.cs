@@ -20,6 +20,7 @@ namespace AnyMind.Pong2D
         // State
         private int currentLifePoints;
         private int remainingBricks;
+        private Ball activeBall;
 
         private void Start()
         {
@@ -32,6 +33,7 @@ namespace AnyMind.Pong2D
                 // Initialization was invoked via Editor play button
                 LoadStageFromData(editorTesterStage);
             }
+            activeBall = FindObjectOfType<Ball>();
         }
 
         private void LoadStageFromData(StageData data)
@@ -74,6 +76,7 @@ namespace AnyMind.Pong2D
             // Check if all bricks have been destroyed
             if (remainingBricks < 1)
             {
+                Destroy(activeBall.gameObject);
                 OnStageSuccessfullyCleared();
             }
         }
@@ -81,6 +84,14 @@ namespace AnyMind.Pong2D
         public void ReceiveDamage()
         {
             SetLifePoints(currentLifePoints-1);
+        }
+
+        public void RequestBallSpawn()
+        {
+            if (currentLifePoints > 0 && remainingBricks > 0)
+            {
+                activeBall.Spawn();
+            }
         }
 
         /// <summary> Assigns the data that loading methods will use </summary>

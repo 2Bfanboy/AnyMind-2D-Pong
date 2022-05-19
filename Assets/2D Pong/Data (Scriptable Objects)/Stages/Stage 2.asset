@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stageName: Stage 2
   lifePoints: 3
-  bricks: {fileID: 3519693281005564923, guid: 514e83956876e43949b83430ad83e3f5, type: 3}
+  bricks: {fileID: 5697731568009570003, guid: 514e83956876e43949b83430ad83e3f5, type: 3}
