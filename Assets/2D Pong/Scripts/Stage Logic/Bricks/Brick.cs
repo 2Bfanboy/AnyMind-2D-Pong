@@ -10,16 +10,29 @@ namespace AnyMind.Pong2D
         [SerializeField]
         protected int lifePoints;
 
+        [SerializeField]
+        protected bool indestructible = false;
+
+        public delegate void BrickDestroyed(Brick caller);
+        public BrickDestroyed OnBrickDestroyed;
+
+        /// <summary> If true, this brick can never leave the stage and is unaffected by life points. </summary>
+        public bool Indestructible => indestructible;
+
         protected virtual void RespondToHit()
         {
             // Default functionality when taking a hit
-            CheckIsDefeated();
+            if (!indestructible)
+            {
+                CheckIsDefeated();   
+            }
         }
 
         private void CheckIsDefeated()
         {
             if (lifePoints < 1)
-            { 
+            {
+                OnBrickDestroyed(this);
                 Destroy(gameObject);
             }
         }

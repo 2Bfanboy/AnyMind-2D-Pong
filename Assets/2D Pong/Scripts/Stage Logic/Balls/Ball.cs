@@ -29,7 +29,13 @@ namespace AnyMind.Pong2D
 
         public virtual void Spawn()
         {
-            transform.position = Vector3.zero;
+            var platformReference = FindObjectOfType<Platform>();
+            if (platformReference != null)
+            {
+                var platformPosition = platformReference.transform.position;
+                var newPosition = new Vector3(platformPosition.x, platformPosition.y + 1f, platformPosition.z);
+                transform.position = newPosition;
+            }
 
             if (rigidbodyReference != null)
             {

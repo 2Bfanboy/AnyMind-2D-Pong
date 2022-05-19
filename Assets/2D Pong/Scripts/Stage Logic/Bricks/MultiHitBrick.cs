@@ -38,8 +38,6 @@ namespace AnyMind.Pong2D
                 if (colorIndex < 0 || colorIndex >= lifePointColors.Count)
                 {
                     colorIndex = 0;
-                    Debug.Log("<color=red>[Warning!] Please ensure that enough colors are set in the inspector " +
-                              "for <b><color=white>" + this.name + "</color></b></color>");
                 }
                 brickSprite.color = lifePointColors[colorIndex];
             }
